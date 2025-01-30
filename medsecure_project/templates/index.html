@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedSecure Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">MedSecure Anomaly Detection</h1>
+        <form method="post" action="/">
+            <div class="form-group">
+                <label for="temperature">Temperature (°C):</label>
+                <input type="text" class="form-control" id="temperature" name="temperature" required>
+            </div>
+            <div class="form-group">
+                <label for="heart_rate">Heart Rate (bpm):</label>
+                <input type="text" class="form-control" id="heart_rate" name="heart_rate" required>
+            </div>
+            <div class="form-group">
+                <label for="oxygen_level">Oxygen Level (%):</label>
+                <input type="text" class="form-control" id="oxygen_level" name="oxygen_level" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+        {% if result %}
+        <div class="alert alert-info result" role="alert">
+            {{ result }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
